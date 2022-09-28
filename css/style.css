@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Plus+Jakarta+Sans:,regular,500,700);
 * {
   padding: 0;
@@ -74,4 +75,147 @@ img {
 h1, h2, h3, h4, h5, h6 {
   font-size: inherit;
   font-weight: 400;
+}
+
+.main__text {
+  font-size: 24px;
+  font-family: "Plus Jakarta Sans";
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 125%;
+  text-align: center;
+  letter-spacing: -0.03em;
+  color: white;
+}
+
+@media (min-width: 280px) {
+  .main__text {
+    font-size: 48px;
+    font-size: calc( 0.02241 * 100vw + 17.72414px);
+  }
+}
+
+@media (min-width: 1440px) {
+  .main__text {
+    font-size: 50px;
+  }
+}
+
+.main__button {
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  color: white;
+  border: 1px solid white;
+  border-radius: 100px;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  background-color: transparent;
+}
+
+.main__button:hover {
+  cursor: pointer;
+  background-color: #ffffff1a;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.email > span {
+  background: url("../img/email.svg") left center no-repeat;
+}
+
+.telegram > span {
+  background: url("../img/telegram.svg") left center no-repeat;
+}
+
+.linkedin > span {
+  background: url("../img/linkedin.svg") left center no-repeat;
+}
+
+.github > span {
+  background: url("../img/github.svg") left center no-repeat;
+}
+
+.resume > span {
+  background: url("../img/resume.svg") left center no-repeat;
+}
+
+/* ====================================== */
+.wraper {
+  min-height: 100%;
+  background-color: #080808;
+  padding: 0 20px;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+.container {
+  max-width: 940px;
+  margin: 0px auto;
+}
+
+.main {
+  /* TODO: уточнить отступы для мобильной версии */
+  padding: 160px 0px;
+}
+
+.main__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.main__emoji {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+.main__emoji img {
+  width: 100%;
+}
+
+.main__text {
+  max-width: 810px;
+  margin-bottom: 40px;
+}
+
+.main__text span {
+  opacity: 0.45;
+}
+
+.main__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  max-width: 725px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main__button {
+  padding: 12px 24px;
+}
+
+.main__button span {
+  padding-left: 22px;
 }

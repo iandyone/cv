@@ -1,2 +1,111 @@
 @import url(https://fonts.googleapis.com/css?family=Plus+Jakarta+Sans:,regular,500,700);
 @import "./nullstyle.scss";
+@import "./mixins.scss";
+
+$mainColor: #080808;
+$hoverColor: #ffffff1a;
+$white: #ffffff;
+
+%text {
+    @include fluidFontSize(24px, 50px, 280px, 1440px, 48px);
+    font-family: "Plus Jakarta Sans";
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 125%;
+    text-align: center;
+    letter-spacing: -0.03em;
+    color: white;
+}
+
+%button {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    color: white;
+    border: 1px solid white;
+    border-radius: 100px;
+    transition: all 0.2s ease;
+    background-color: transparent;
+
+    &:hover {
+        cursor: pointer;
+        background-color: $hoverColor;
+        transition: all 0.3s ease;
+    }
+}
+
+.email > span {
+    background: url("../img/email.svg") left center no-repeat;
+}
+.telegram > span {
+    background: url("../img/telegram.svg") left center no-repeat;
+}
+.linkedin > span {
+    background: url("../img/linkedin.svg") left center no-repeat;
+}
+.github > span {
+    background: url("../img/github.svg") left center no-repeat;
+}
+.resume > span {
+    background: url("../img/resume.svg") left center no-repeat;
+}
+
+/* ====================================== */
+
+.wraper {
+    min-height: 100%;
+    background-color: $mainColor;
+    padding: 0 20px;
+    box-sizing: content-box;
+}
+.container {
+    max-width: 940px;
+    margin: 0px auto;
+}
+.main {
+    /* TODO: уточнить отступы для мобильной версии */
+    padding: 160px 0px;
+    &__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    &__emoji {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 20px;
+
+        img {
+            width: 100%;
+        }
+    }
+    &__text {
+        @extend %text;
+        max-width: 810px;
+        margin-bottom: 40px;
+
+        span {
+            opacity: 0.45;
+        }
+    }
+    &__buttons {
+        display: flex;
+        gap: 12px;
+        width: 100%;
+        max-width: 725px;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__button {
+        @extend %button;
+        padding: 12px 24px;
+
+        span {
+            padding-left: 22px;
+        }
+    }
+}
