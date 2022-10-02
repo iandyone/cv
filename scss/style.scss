@@ -5,6 +5,8 @@
 $mainColor: #080808;
 $hoverColor: #ffffff1a;
 $white: #ffffff;
+$ping: #ff00d6;
+$green: #00ff41;
 
 %text {
     @include fluidFontSize(24px, 50px, 280px, 1440px, 48px);
@@ -32,6 +34,16 @@ $white: #ffffff;
         cursor: pointer;
         background-color: $hoverColor;
         transition: all 0.3s ease;
+    }
+}
+
+%padding {
+    padding: 100px 0px;
+    @media (max-width: 768px) {
+        padding: 70px 0px;
+    }
+    @media (max-width: 480px) {
+        padding: 50px 0px;
     }
 }
 
@@ -65,7 +77,7 @@ $white: #ffffff;
 }
 .main {
     /* TODO: уточнить отступы для мобильной версии */
-    padding: 160px 0px;
+    @extend %padding;
     &__container {
         display: flex;
         justify-content: center;
@@ -87,13 +99,12 @@ $white: #ffffff;
         margin-bottom: 40px;
 
         span {
-            opacity: 0.45;
+            opacity: .45;
         }
     }
     &__buttons {
         display: flex;
         gap: 12px;
-        width: 100%;
         max-width: 725px;
         flex-wrap: wrap;
         justify-content: center;
@@ -106,6 +117,23 @@ $white: #ffffff;
 
         span {
             padding-left: 22px;
+        }
+    }
+}
+
+.summary {
+    @extend %padding;
+    max-width: 720px;
+    margin: 0px auto;
+
+    &__text {
+        @extend %text;
+
+        span {
+            color: $green;
+            &:last-child {
+                color: $ping;
+            }
         }
     }
 }
