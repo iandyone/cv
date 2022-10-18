@@ -1,0 +1,38 @@
+%text {
+    @include fluidFontSize(24px, 50px, 280px, 1440px, 48px);
+    font-family: "Plus Jakarta Sans";
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 125%;
+    text-align: center;
+    letter-spacing: -0.03em;
+    color: $white;
+}
+
+%button {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    color: $white;
+    border: 1px solid $white;
+    border-radius: 100px;
+    transition: all 0.2s ease;
+    background-color: transparent;
+
+    &:hover {
+        cursor: pointer;
+        background-color: $hoverColor;
+        transition: all 0.3s ease;
+    }
+}
+
+%padding {
+    padding: 100px 0px;
+    @media (max-width: 768px) {
+        padding: 70px 0px;
+    }
+    @media (max-width: 480px) {
+        padding: 50px 0px;
+    }
+}

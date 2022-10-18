@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
     <title>Andrei Bernatski CV</title>
 </head>
 
@@ -15,8 +17,8 @@
                 <div class="main__emoji">
                     <img src="img/waving_hand.png" alt="waving_hand">
                 </div>
-                <p class="main__text">Hey! I’m Andrei Bernatski<br>I’m a Front-end Developer 🛠️.<br><span>I am an
-                        actively developing specialist and with a dream to become a part of a cool team</span>🔥.</p>
+                <h1 class="main__text">Hey! I’m Andrei Bernatski<br>I’m a Front-end Developer 🛠️.<br><span>I am an
+                        actively developing specialist and with a dream to become a part of a cool team</span>🔥.</h1>
                 <div class="main__buttons">
                     <a href="mailto:bernatski.a@gmail.com" class="main__button email"
                         target="_blank"><span>Email</span></a>
@@ -33,9 +35,142 @@
         <article class="summary">
             <div class="summary__container container">
                 <p class="summary__text">I am constantly evolving<br>and have made several projects with
-                    <span>React.js</span> and <span>Redux</span> to showcase my skills</p>
+                    <span>React.js</span> and <span>Redux</span> to showcase my skills
+                </p>
             </div>
         </article>
+        <article class="projects">
+            <div class="projects__container container">
+                <div class="projects__project project light-crypto">
+                    <div class="project__container">
+                        <div class="project__content">
+                            <h2 class="project__title">Light Crypto</h2>
+                            <p class="project__text">A web tool for converting and real-time tracking cryptocurrency
+                                changes, created with JavaScript and React.js.</p>
+                            <div class="project__stack">
+                                <span class="project__technology">HTML</span>
+                                <span class="project__technology">CSS</span>
+                                <span class="project__technology">JavaScript</span>
+                                <span class="project__technology">React.js</span>
+                                <span class="project__technology">Redux</span>
+                                <span class="project__technology">Redux-thunk</span>
+                                <span class="project__technology">Axios</span>
+                                <span class="project__technology">WebSocket</span>
+                            </div>
+                            <div class="project__buttons">
+                                <a href="https://iandyone-light-crypto.netlify.app" class="project__button visit"
+                                    target="_blank"><span>Visit</span></a>
+                                <a href="https://github.com/iandyone/Light-Crypto" class="project__button github"
+                                    target="_blank"><span>GitHub</span></a>
+                            </div>
+                        </div>
+                        <div class="project__icon">
+                            <img src="img/projects/light-crypto.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="projects__project project users">
+                    <div class="project__container">
+                        <div class="project__content">
+                            <h2 class="project__title">GitHub Users</h2>
+                            <p class="project__text">A web tool for converting and real-time tracking cryptocurrency
+                                changes, created with JavaScript and React.js.</p>
+                            <div class="project__stack">
+                                <span class="project__technology">HTML</span>
+                                <span class="project__technology">CSS</span>
+                                <span class="project__technology">JavaScript</span>
+                                <span class="project__technology">React.js</span>
+                                <span class="project__technology">Redux</span>
+                                <span class="project__technology">Redux-thunk</span>
+                            </div>
+                            <div class="project__buttons">
+                                <a href="https://iandyone-github-users.netlify.app/" class="project__button visit"
+                                    target="_blank"><span>Visit</span></a>
+                                <a href="https://github.com/iandyone/Users" class="project__button github"
+                                    target="_blank"><span>GitHub</span></a>
+                            </div>
+                            <div class="project__icon">
+                                <img src="img/projects/users.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="projects__project project ruby small-card">
+                    <div class="project__container">
+                        <div class="project__content">
+                            <h2 class="project__title">Ruby Home</h2>
+                            <!-- <p class="project__text">A responsive design landing page created using SASS preprocessor and animation libraries.</p> -->
+                            <div class="project__stack">
+                                <span class="project__technology">HTML</span>
+                                <span class="project__technology">CSS</span>
+                                <span class="project__technology">JavaScript</span>
+                                <span class="project__technology">jQuery</span>
+                                <span class="project__technology">AOS</span>
+                                <span class="project__technology">Font Awesome</span>
+                            </div>
+                            <div class="project__buttons">
+                                <a href="https://iandyone.github.io/Ruby" class="project__button visit"
+                                    target="_blank"><span>Visit</span></a>
+                                <a href="https://github.com/iandyone/Ruby" class="project__button github"
+                                    target="_blank"><span>GitHub</span></a>
+                            </div>
+                            <div class="project__icon small-card">
+                                <img src="img/projects/ruby.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="projects__project project finance small-card">
+                    <div class="project__container">
+                        <div class="project__content">
+                            <h2 class="project__title">Finance</h2>
+                            <!--  <p class="project__text">A simple responsive design landing page, created on native HTML/CSS.</p> -->
+                            <div class="project__stack">
+                                <span class="project__technology">HTML</span>
+                                <span class="project__technology">CSS</span>
+                                <span class="project__technology">JavaScript</span>
+                            </div>
+                            <div class="project__buttons">
+                                <a href="https://iandyone.github.io/Finance" class="project__button visit"
+                                    target="_blank"><span>Visit</span></a>
+                                <a href="https://github.com/iandyone/Finance" class="project__button github"
+                                    target="_blank"><span>GitHub</span></a>
+                            </div>
+                            <div class="project__icon small-card">
+                                <img src="img/projects/finance.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="skills">
+            <div class="skills__container container">
+                <p class="skills__text">I love to learn new and take new skills</p>
+                <p class="skills__text">HTML5 CSS3 SaSS BEM JavaScript</p>
+                <p class="skills__text">TypeScript React.js Redux</p>
+                <p class="skills__text">NPM GIT FIGMA</p>
+            </div>
+        </article>
+        <article class="contacts">
+            <div class="contacts__container container">
+                <p class="contacts__label">I am open to work</p>
+                <p class="contacts__text">Based in Minsk but<br>ready for relocate</p>
+                <p class="contacts__text">Contact me</p>
+                <div class="contacts__buttons">
+                    <a href="mailto:bernatski.a@gmail.com" class="contacts__button email"
+                        target="_blank"><span>Email</span></a>
+                    <a href="https://t.me/iandyone" class="contacts__button telegram"
+                        target="_blank"><span>Telegram</span></a>
+                    <a href="https://www.linkedin.com/in/iandyone" class="contacts__button linkedin"
+                        target="_blank"><span>Linkedin</span></a>
+                    <a href="https://github.com/iandyone" class="contacts__button github"
+                        target="_blank"><span>GitHub</span></a>
+                    <a href="bernatski_cv.pdf" class="contacts__button resume" target="_blank"><span>Resume</span></a>
+                </div>
+            </div>
+        </article>
+        
     </main>
 </body>
 
