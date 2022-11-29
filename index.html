@@ -18,20 +18,51 @@
 
     .summary {
         min-height: 100vh;
-        opacity: 0;
-        transition: opacity 3s;
-        transition-delay: 1.5s;
         padding-bottom: 0;
+
     }
 
+    .summary__text {
+        opacity: 0;
+        transition: opacity 3s;
+        transition-delay: .7s;
+    }
+
+
+
+
+    .light-crypto {
+        opacity: 0;
+        transition: opacity 1.5s;
+        transition-delay: .5s;
+    }
+
+   
+
+    .ruby {
+        transform: translate(-50%, 50%);
+        opacity: 0;
+        transition: all 1s;
+        transition-delay: 1s;
+    }
+    
+    .finance {
+        transform: translate(50%, 50%);
+        opacity: 0;
+        transition: all 1s;
+        transition-delay: 1s;
+    }
     .scroll-opacity {
         opacity: 1;
+        transform: translate(0%, 0%);
     }
+
+
 </style>
 
 <body>
     <main class="wraper" data-scroll data-scroll-container>
-        <section class="main" data-scroll-section>
+        <section class="main" data-scroll data-scroll-section>
             <div class="main__container container" data-scroll data-scroll-speed="4">
                 <div class="main__emoji">
                     <img src="img/waving_hand.png" alt="waving_hand">
@@ -55,19 +86,19 @@
                 </div>
             </div>
         </section>
-        <section class="summary" data-scroll data-scroll-section data-scroll-class="scroll-opacity">
+        <section class="summary" data-scroll data-scroll-section>
             <div class="summary__container container">
-                <div class="summary__text" data-scroll>
+                <div class="summary__text" data-scroll data-scroll-class="scroll-opacity">
                     <p data-scroll data-scroll-speed="1">I am constantly evolving</p>
                     <p data-scroll data-scroll-speed="1.5">and have made several projects</p>
-                    <p data-scroll data-scroll-speed="2">with <span>React.js</span> and <span>Redux</span> to showcase my
-                        skills</p>
+                    <p data-scroll data-scroll-speed="2">with <span>React.js</span> and <span>Redux</span> to showcase
+                        my skills</p>
                 </div>
             </div>
         </section>
         <section class="projects" data-scroll data-scroll-section>
             <div class="projects__container container">
-                <div class="projects__project project light-crypto" data-scroll>
+                <div class="projects__project project light-crypto" data-scroll data-scroll-class="scroll-opacity">
                     <div class="project__container">
                         <div class="project__content">
                             <h2 class="project__title">Light Crypto</h2>
@@ -121,7 +152,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="projects__project project ruby small-card">
+                <div class="projects__project project ruby small-card" data-scroll data-scroll-class="scroll-opacity">
                     <div class="project__container">
                         <div class="project__content">
                             <h2 class="project__title">Ruby Home</h2>
@@ -146,7 +177,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="projects__project project finance small-card">
+                <div class="projects__project project finance small-card" data-scroll data-scroll-class="scroll-opacity">
                     <div class="project__container">
                         <div class="project__content">
                             <h2 class="project__title">Finance</h2>
@@ -170,7 +201,7 @@
                 </div>
             </div>
         </section>
-        <section data-scroll-section class="skills">
+        <section class="skills" data-scroll data-scroll-section>
             <div class="skills__container container">
                 <p class="skills__text">I love to learn new and take new skills</p>
                 <p class="skills__text">HTML5 CSS3 SaSS BEM JavaScript</p>
@@ -178,7 +209,7 @@
                 <p class="skills__text">NPM GIT FIGMA</p>
             </div>
         </section>
-        <section data-scroll-section class="contacts">
+        <section class="contacts" data-scroll data-scroll-section>
             <div class="contacts__container container">
                 <p class="contacts__label">I am open to work</p>
                 <p class="contacts__text">Based in Minsk but<br>ready for relocate</p>
@@ -202,7 +233,7 @@
         const scroll = new LocomotiveScroll({
             el: document.querySelector('[data-scroll-container]'),
             smooth: true,
-            multiplier: ".5",
+            multiplier: ".27",
         });
     </script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
