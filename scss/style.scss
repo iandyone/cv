@@ -54,7 +54,7 @@
 /* ====================================== */
 
 .main {
-    @extend %padding;
+    padding: 80px 0;
 
     &__container {
         display: flex;
@@ -74,7 +74,8 @@
     &__text {
         @extend %text;
         max-width: 810px;
-        margin-bottom: 40px;
+        // margin-bottom: 40px;
+        margin-bottom: 10px;
 
         span {
             opacity: 0.45;

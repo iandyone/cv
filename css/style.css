@@ -44,18 +44,18 @@
   transition: all 0.3s ease;
 }
 
-.main, .summary, .skills, .contacts {
+.summary, .skills, .contacts {
   padding: 100px 0px;
 }
 
 @media (max-width: 768px) {
-  .main, .summary, .skills, .contacts {
+  .summary, .skills, .contacts {
     padding: 70px 0px;
   }
 }
 
 @media (max-width: 480px) {
-  .main, .summary, .skills, .contacts {
+  .summary, .skills, .contacts {
     padding: 50px 0px;
   }
 }
@@ -197,6 +197,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ====================================== */
+.main {
+  padding: 80px 0;
+}
+
 .main__container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -225,7 +229,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .main__text {
   max-width: 810px;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 
 .main__text span {
