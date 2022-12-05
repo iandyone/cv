@@ -1,7 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Plus+Jakarta+Sans:,regular,500,700);
+@import "./base.scss";
 @import "./variables.scss";
 @import "./mixins.scss";
-@import "./samples.scss";
+@import "./templates.scss";
 @import "./nullstyle.scss";
 
 /* === COMMON CLASSES === */
@@ -9,38 +10,14 @@
 .wraper {
     min-height: 100%;
     background-color: $mainColor;
-    padding: 0 20px 150px;
-    box-sizing: content-box;
-    background: url("../img/сlapping_hands.svg") bottom center no-repeat;
-
-    @media (max-width: 480px) {
-        padding-bottom: 200px;
-    }
+    overflow: hidden;
 }
 
 .container {
+    box-sizing: content-box;
+    padding: 0px 20px;
     max-width: 940px;
     margin: 0px auto;
-}
-
-.email > span {
-    background: url("../img/email.svg") left center no-repeat;
-}
-.telegram > span {
-    background: url("../img/telegram.svg") left center no-repeat;
-}
-.linkedin > span {
-    background: url("../img/linkedin.svg") left center no-repeat;
-}
-.github > span {
-    background: url("../img/github.svg") left center no-repeat;
-}
-.resume > span {
-    background: url("../img/resume.svg") left center no-repeat;
-}
-
-.visit > span {
-    background: url("../img/arrow-white.svg") right center no-repeat;
 }
 
 .small-card {
@@ -56,12 +33,21 @@
 .main {
     padding: 80px 0;
 
+    @media (max-width: 480px) {
+        padding: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
     &__container {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
     }
+
     &__emoji {
         width: 100px;
         height: 100px;
@@ -71,16 +57,17 @@
             width: 100%;
         }
     }
+
     &__text {
         @extend %text;
         max-width: 810px;
-        // margin-bottom: 40px;
         margin-bottom: 10px;
 
         span {
             opacity: 0.45;
         }
     }
+
     &__buttons {
         display: flex;
         gap: 12px;
@@ -92,21 +79,60 @@
 
     &__button {
         @extend %button;
+        @include button($mainColor);
+        display: flex;
+        align-items: center;
+        column-gap: 5px;
         padding: 12px 24px;
-
-        span {
-            padding-left: 22px;
-        }
     }
 }
 
 .summary {
-    @extend %padding;
-    max-width: 720px;
-    margin: 0px auto;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translate(0%, -50%);
+        width: 240px;
+        height: 240px;
+
+        @media (max-width: 1024px) {
+            display: none;
+        }
+    }
+
+    &::before {
+        left: -1%;
+        background: url("../img/smile.png") center no-repeat;
+    }
+
+    &::after {
+        right: -1%;
+        background: url("../img/backhand.png") center no-repeat;
+    }
+
+    @media (max-width: 992px) {
+        min-height: 60vh;
+    }
+
+    @media (max-width: 480px) {
+        min-height: 50vh;
+        padding-top: 30px;
+        align-items: flex-start;
+    }
 
     &__text {
         @extend %text;
+        opacity: 0;
+        transition: opacity 2s;
+        transition-delay: 0.3s;
 
         span {
             color: $green;
@@ -133,6 +159,7 @@
 .project {
     overflow: hidden;
     border-radius: 80px;
+
     &:not(.small-card) {
         margin-bottom: 12px;
     }
@@ -168,39 +195,17 @@
             padding-bottom: 0px;
             border-radius: 40px;
         }
-
-        .light-crypto > & {
-            background: url("../img/projects/light-crypto.png") right center no-repeat, $purple;
-            background-size: 480px, 400px;
-
-            @media (max-width: 768px) {
-                background: $purple;
-            }
-        }
-        .users > & {
-            background: url("../img/projects/users.png") right center no-repeat, $blue;
-            background-size: 480px, 400px;
-
-            @media (max-width: 768px) {
-                background: $blue;
-            }
-        }
-
-        .ruby > & {
-            background: $darkBlue;
-            background-size: 480px, 400px;
-            padding-bottom: 0;
-        }
-
-        .finance > & {
-            background: $orange;
-            background-size: 480px, 400px;
-            padding-bottom: 0;
-        }
     }
 
     &__content {
         padding: 86px 0;
+
+        @media (max-width: 768px) {
+            padding: 20px;
+        }
+        @media (max-width: 480px) {
+            padding: 0px;
+        }
 
         .small-card & {
             padding: 12px 0 44px 0px;
@@ -208,6 +213,7 @@
             flex-direction: column;
             align-items: center;
             padding-bottom: 0;
+
             @media (max-width: 768px) {
                 padding: 20px 0;
             }
@@ -215,13 +221,6 @@
             @media (max-width: 480px) {
                 padding: 0px;
             }
-        }
-
-        @media (max-width: 768px) {
-            padding: 20px;
-        }
-        @media (max-width: 480px) {
-            padding: 0px;
         }
     }
 
@@ -308,23 +307,11 @@
         justify-content: center;
         align-items: center;
         border-radius: 20px;
-
-        &.visit {
-            padding: 8px 16px;
-            background: $lightGray;
-        }
-        &.github {
-            padding: 12px 16px;
-            background: transparent;
-            border: 2px solid $darkGray;
-        }
-
-        &.visit span {
-            padding-right: 22px;
-        }
-        &.github span {
-            padding-left: 22px;
-        }
+        column-gap: 8px;
+        padding: 12px 16px;
+        border: 2px solid $darkGray;
+        transition: all 0.1s ease;
+        height: 45px;
     }
 
     &__icon {
@@ -333,6 +320,9 @@
 
         &.small-card {
             display: block;
+            & > .project__icon {
+                display: block;
+            }
         }
 
         img {
@@ -349,54 +339,203 @@
             max-height: 150px;
         }
     }
+}
 
-    .small-card {
-        & > .project__icon {
-            display: block;
+.light-crypto {
+    opacity: 0;
+    transition: opacity 1.5s;
+    transition-delay: 0.5s;
+
+    @media (max-width: 992px) {
+        transition-delay: 0s;
+    }
+
+    & > .project__container {
+        background: url("../img/projects/light-crypto.png") right center no-repeat, $purple;
+        background-size: 480px, 400px;
+
+        @media (max-width: 768px) {
+            background: $purple;
         }
     }
+
+    & .github {
+        @include button($purple);
+    }
+
+    & .visit {
+        @include button($purple, $lightGray);
+    }
+}
+
+.users {
+    & > .project__container {
+        background: url("../img/projects/users.png") right center no-repeat, $blue;
+        background-size: 480px, 400px;
+
+        & .github {
+            @include button($blue);
+        }
+
+        & .visit {
+            @include button($blue, $lightGray);
+        }
+
+        @media (max-width: 768px) {
+            background: $blue;
+        }
+    }
+}
+
+.ruby {
+    transform: translate(-50%, 50%);
+    opacity: 0;
+    transition: all 1.3s;
+
+    & > .project__container {
+        background: $darkBlue;
+        background-size: 480px, 400px;
+        padding-bottom: 0;
+    }
+
+    & .github {
+        @include button($darkBlue);
+    }
+
+    & .visit {
+        @include button($darkBlue, $lightGray);
+    }
+}
+
+.finance {
+    transform: translate(50%, 50%);
+    opacity: 0;
+    transition: all 1.3s;
+
+    & > .project__container {
+        background: $orange;
+        background-size: 480px, 400px;
+        padding-bottom: 0;
+    }
+
+    & .github {
+        @include button($orange);
+    }
+
+    & .visit {
+        @include button($orange, $lightGray);
+    }
+}
+
+.scroll-opacity {
+    opacity: 1 !important;
+    transform: translate(0%, 0%);
 }
 
 .skills {
     @extend %padding;
     text-align: center;
     margin: 0px auto;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    position: relative;
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 240px;
+        height: 240px;
+
+        @media (max-width: 1024px) {
+            display: none;
+        }
+    }
+
+    &::before {
+        left: -1%;
+        background: url("../img/like.png") center no-repeat;
+    }
+
+    &::after {
+        right: -1%;
+        background: url("../img/сlapping_hands.png") center no-repeat;
+    }
+
+    @media (max-width: 992px) {
+        align-items: center;
+        min-height: 60vh;
+        transition: opacity 3s;
+        transition-delay: 1s;
+    }
+
+    &__container {
+        @media (max-width: 992px) {
+            opacity: 0;
+            transition: opacity 3s;
+            transition-delay: 1s;
+        }
+    }
 
     &__text {
         @extend %text;
 
         &:not(:first-child) {
-            word-spacing: 40px;
-        }
-        &:not(:last-child) {
-            margin-bottom: 20px;
-        }
-
-        @media (max-width: 768px) {
-            &:not(:first-child) {
+            word-spacing: 33px;
+            @media (max-width: 768px) {
                 word-spacing: 10px;
             }
         }
 
-        @media (max-width: 480px) {
-            &:not(:last-child) {
+        &:not(:last-child) {
+            margin-bottom: 20px;
+            @media (max-width: 480px) {
                 margin-bottom: 10px;
             }
+        }
+
+        & > p {
+            display: inline-block;
+        }
+
+        &__container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: colum1n;
+            justify-content: center;
+            align-items: center;
         }
     }
 }
 
 .contacts {
     @extend %padding;
+    padding-bottom: 0px;
     text-align: center;
     margin: 0px auto;
 
+    @media (max-width: 840px) {
+        padding: 0;
+    }
+
+    @media (max-width: 768px) {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     &__container > *:not(:last-child) {
-        margin: 0px 0px 46px 0px;
+        margin: 0px auto;
+        margin-bottom: 25px;
 
         @media (max-width: 768px) {
-            margin: 0px 0px 25px 0px;
+            margin: 0px 0px 20px 0px;
         }
+
         @media (max-width: 480px) {
             margin: 0px 0px 15px 0px;
         }
@@ -410,8 +549,9 @@
         line-height: 125%;
         color: $green;
         padding: 4% 3%;
-        background: rgba(0, 255, 65, 0.1);
+        background: #00ff411a;
         border-radius: 100px;
+        animation: link 2s ease-in-out infinite;
     }
 
     &__text {
@@ -431,10 +571,29 @@
 
     &__button {
         @extend %button;
+        @include button($mainColor);
+        display: flex;
+        align-items: center;
+        column-gap: 5px;
         padding: 12px 24px;
+    }
 
-        span {
-            padding-left: 22px;
+    &__image {
+        position: relative;
+
+        @media (max-width: 480px) {
+            margin-bottom: -30px;
         }
+    }
+}
+
+@keyframes link {
+    0% {
+        -webkit-box-shadow: $green 0 0 0;
+        box-shadow: $green 0 0 0;
+    }
+    70% {
+        -webkit-box-shadow: $mainColor 0 0 0 10px;
+        box-shadow: $mainColor 0 0 0 10px;
     }
 }

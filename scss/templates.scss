@@ -1,3 +1,6 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
 %text {
     @include fluidFontSize(24px, 50px, 280px, 1440px, 48px);
     font-family: "Plus Jakarta Sans";
@@ -29,10 +32,12 @@
 
 %padding {
     padding: 100px 0px;
+
     @media (max-width: 768px) {
-        padding: 70px 0px;
+        padding: 30px 0px;
     }
+
     @media (max-width: 480px) {
-        padding: 50px 0px;
+        padding: 20px 0px;
     }
 }
