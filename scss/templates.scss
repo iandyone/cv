@@ -1,3 +1,6 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
 %text {
     @include fluidFontSize(24px, 50px, 280px, 1440px, 48px);
     font-family: "Plus Jakarta Sans";
@@ -19,7 +22,7 @@
     border-radius: 100px;
     transition: all 0.2s ease;
     background-color: transparent;
-
+    
     &:hover {
         cursor: pointer;
         background-color: $hoverColor;
