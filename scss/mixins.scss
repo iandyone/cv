@@ -34,21 +34,22 @@
     }
 }
 
-@mixin button($fillColor, $bgColor: transparent) {
+@mixin button($textColor, $bgColor, $textHover, $bgHover) {
+    color: $textColor;
     background: $bgColor;
 
     & > svg path {
-        fill: $white;
+        fill: $textColor;
     }
 
     &:hover {
         transition: all 0.3s ease;
-        background-color: $white;
-        color: $fillColor;
+        background-color: $bgHover;
+        color: $textHover;
 
         & > svg path {
             transition: all 0.3s ease;
-            fill: $fillColor;
+            fill: $textHover;
         }
     }
 }

@@ -28,24 +28,52 @@
     }
 }
 
+.scroll-opacity {
+    opacity: 1 !important;
+    transform: translate(0%, 0%) !important;
+}
+
+.darkened {
+    opacity: 0.6;
+}
+
 /* ====================================== */
 
 .main {
-    padding: 80px 0;
+    padding-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 992px;
+
+    @media (max-width: 992px) {
+        padding: 20px;
+    }
 
     @media (max-width: 480px) {
         padding: 0px;
         display: flex;
         justify-content: center;
         align-items: center;
-        min-height: 100vh;
+        height: 100vh;
+        max-height: 750px;
     }
 
     &__container {
+        @extend %section;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
+
+        @media (max-width: 992px) {
+            padding-top: 40px;
+            min-height: auto;
+        }
+
+        @media (max-width: 480px) {
+            padding-top: 0px;
+        }
     }
 
     &__emoji {
@@ -62,10 +90,6 @@
         @extend %text;
         max-width: 810px;
         margin-bottom: 10px;
-
-        span {
-            opacity: 0.45;
-        }
     }
 
     &__buttons {
@@ -79,7 +103,7 @@
 
     &__button {
         @extend %button;
-        @include button($mainColor);
+        @include button($white, transparent, $mainColor, $white);
         display: flex;
         align-items: center;
         column-gap: 5px;
@@ -88,11 +112,87 @@
 }
 
 .summary {
-    min-height: 100vh;
+    height: 80vh;
+    max-height: 600px;
+    margin-bottom: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+
+    @media (max-width: 1024px) {
+        margin-bottom: 0px;
+        min-height: 400px;
+        height: auto;
+    }
+
+    @media (max-width: 480px) {
+        padding: 0px !important;
+        align-items: flex-start;
+        min-height: 300px;
+    }
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translate(0%, -50%);
+        width: 240px;
+        height: 240px;
+
+        @media (max-width: 1200px) {
+            display: none;
+        }
+    }
+
+    &::before {
+        left: -1%;
+        background: url("../img/smile.png") center no-repeat;
+    }
+
+    &::after {
+        right: -1%;
+        background: url("../img/backhand.png") center no-repeat;
+    }
+
+    &__text {
+        @extend %text;
+        opacity: 0;
+        transition: opacity 2s;
+        transition-delay: 0.3s;
+
+        span {
+            color: $green;
+            &:last-child {
+                color: $ping;
+            }
+        }
+    }
+}
+
+/* ====================================== */
+
+.summary {
+    height: 80vh;
+    max-height: 600px;
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    @media (max-width: 1024px) {
+        margin-bottom: 0px;
+        min-height: 400px;
+        height: auto;
+    }
+
+    @media (max-width: 480px) {
+        padding: 30px 0px 0px 0px;
+        align-items: flex-start;
+        min-height: 300px;
+    }
 
     &::before,
     &::after {
@@ -118,16 +218,6 @@
         background: url("../img/backhand.png") center no-repeat;
     }
 
-    @media (max-width: 992px) {
-        min-height: 60vh;
-    }
-
-    @media (max-width: 480px) {
-        min-height: 50vh;
-        padding-top: 30px;
-        align-items: flex-start;
-    }
-
     &__text {
         @extend %text;
         opacity: 0;
@@ -135,13 +225,20 @@
         transition-delay: 0.3s;
 
         span {
-            color: $green;
-            &:last-child {
+            &[data-react] {
+                color: $green;
+            }
+            &[data-redux] {
                 color: $ping;
+            }
+            &[data-typescript] {
+                color: $turquoise;
             }
         }
     }
 }
+
+/* ====================================== */
 
 .projects {
     &__container {
@@ -156,18 +253,21 @@
     }
 }
 
+/* ====================================== */
+
 .project {
     overflow: hidden;
     border-radius: 80px;
 
     &:not(.small-card) {
-        margin-bottom: 12px;
+        margin-bottom: 20px;
     }
 
     @media (max-width: 768px) {
         border-radius: 40px;
+
         &:not(:last-child) {
-            margin-bottom: 12px !important;
+            margin-bottom: 20px !important;
         }
     }
 
@@ -179,7 +279,7 @@
         display: flex;
         flex: 1 1 auto;
         flex-direction: column;
-        padding: 32px 60px;
+        padding: 10px 60px;
         overflow: hidden;
         background: $purple;
         border-radius: 80px;
@@ -201,7 +301,7 @@
         padding: 86px 0;
 
         @media (max-width: 768px) {
-            padding: 20px;
+            padding: 20px 0px;
         }
         @media (max-width: 480px) {
             padding: 0px;
@@ -213,9 +313,12 @@
             flex-direction: column;
             align-items: center;
             padding-bottom: 0;
+            max-width: 400px;
+            margin: 0px auto;
 
             @media (max-width: 768px) {
-                padding: 20px 0;
+                padding: 20px 0px;
+                max-width: none;
             }
 
             @media (max-width: 480px) {
@@ -258,7 +361,7 @@
         row-gap: 2px;
         max-width: 390px;
         column-gap: 20px;
-        margin-bottom: 12px;
+        margin-bottom: 16px;
 
         @media (max-width: 768px) {
             max-width: none;
@@ -309,7 +412,7 @@
         border-radius: 20px;
         column-gap: 8px;
         padding: 12px 16px;
-        border: 2px solid $darkGray;
+        border: 1px solid $white;
         transition: all 0.1s ease;
         height: 45px;
     }
@@ -344,9 +447,9 @@
 .light-crypto {
     opacity: 0;
     transition: opacity 1.5s;
-    transition-delay: 0.5s;
+    transition-delay: 0.3s;
 
-    @media (max-width: 992px) {
+    @media (max-width: 700px) {
         transition-delay: 0s;
     }
 
@@ -360,11 +463,11 @@
     }
 
     & .github {
-        @include button($purple);
+        @include button($white, transparent, $purple, $white);
     }
 
     & .visit {
-        @include button($purple, $lightGray);
+        @include button($mainColor, $white, $mainColor, $lightGray2);
     }
 }
 
@@ -372,13 +475,12 @@
     & > .project__container {
         background: url("../img/projects/users.png") right center no-repeat, $blue;
         background-size: 480px, 400px;
-
         & .github {
-            @include button($blue);
+            @include button($white, transparent, $blue, $white);
         }
 
         & .visit {
-            @include button($blue, $lightGray);
+            @include button($mainColor, $white, $mainColor, $lightGray2);
         }
 
         @media (max-width: 768px) {
@@ -399,11 +501,11 @@
     }
 
     & .github {
-        @include button($darkBlue);
+        @include button($white, transparent, $darkBlue, $white);
     }
 
     & .visit {
-        @include button($darkBlue, $lightGray);
+        @include button($mainColor, $white, $mainColor, $lightGray2);
     }
 }
 
@@ -419,57 +521,70 @@
     }
 
     & .github {
-        @include button($orange);
+        @include button($white, transparent, $orange, $white);
     }
 
     & .visit {
-        @include button($orange, $lightGray);
+        @include button($mainColor, $white, $mainColor, $lightGray2);
     }
 }
 
-.scroll-opacity {
-    opacity: 1 !important;
-    transform: translate(0%, 0%);
-}
+/* ====================================== */
 
 .skills {
-    @extend %padding;
+    height: 100vh;
+    max-height: 1000px;
     text-align: center;
     margin: 0px auto;
-    min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
-
+    align-items: center;
     position: relative;
+
+    @media (max-width: 1024px) {
+        margin-bottom: 0px;
+        min-height: 400px;
+        height: auto;
+    }
+
+    @media (max-width: 992px) {
+        align-items: center;
+        transition: opacity 3s;
+        transition-delay: 1s;
+        margin-bottom: 0px;
+        max-height: 1000px;
+        margin-bottom: 100px;
+    }
+
+    @media (max-width: 768px) {
+        margin-bottom: 0px;
+    }
+
+    @media (max-width: 480px) {
+        min-height: 300px;
+    }
+
     &::before,
     &::after {
         content: "";
         position: absolute;
-        top: 50%;
+        top: 35%;
         width: 240px;
         height: 240px;
 
-        @media (max-width: 1024px) {
+        @media (max-width: 1200px) {
             display: none;
         }
     }
 
     &::before {
         left: -1%;
-        background: url("../img/like.png") center no-repeat;
+        background: url("../img/cool.png") center no-repeat;
     }
 
     &::after {
-        right: -1%;
-        background: url("../img/сlapping_hands.png") center no-repeat;
-    }
-
-    @media (max-width: 992px) {
-        align-items: center;
-        min-height: 60vh;
-        transition: opacity 3s;
-        transition-delay: 1s;
+        right: -3%;
+        background: url("../img/wonder.png") center no-repeat;
     }
 
     &__container {
@@ -478,6 +593,10 @@
             transition: opacity 3s;
             transition-delay: 1s;
         }
+
+        @media (max-width: 480px) {
+            transition-delay: 0s;
+        }
     }
 
     &__text {
@@ -485,6 +604,7 @@
 
         &:not(:first-child) {
             word-spacing: 33px;
+
             @media (max-width: 768px) {
                 word-spacing: 10px;
             }
@@ -492,6 +612,7 @@
 
         &:not(:last-child) {
             margin-bottom: 20px;
+
             @media (max-width: 480px) {
                 margin-bottom: 10px;
             }
@@ -511,51 +632,73 @@
     }
 }
 
+/* ====================================== */
+
 .contacts {
-    @extend %padding;
-    padding-bottom: 0px;
+    height: 80vh;
+    padding-bottom: 100px;
+    max-height: 800px;
     text-align: center;
     margin: 0px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     @media (max-width: 840px) {
         padding: 0;
     }
 
     @media (max-width: 768px) {
-        min-height: 100vh;
+        height: 100vh;
+        max-height: 600px;
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    &__container > *:not(:last-child) {
-        margin: 0px auto;
-        margin-bottom: 25px;
-
-        @media (max-width: 768px) {
-            margin: 0px 0px 20px 0px;
-        }
-
-        @media (max-width: 480px) {
-            margin: 0px 0px 15px 0px;
-        }
+    @media (max-width: 480px) {
+        height: 700px;
+        max-height: none;
     }
 
     &__label {
         @extend %text;
+        padding: 3% 6%;
+        font-size: 35px;
         display: inline-flex;
         justify-content: center;
         align-items: center;
         line-height: 125%;
         color: $green;
-        padding: 4% 3%;
-        background: #00ff411a;
+        background: #3cf56c1a;
         border-radius: 100px;
-        animation: link 2s ease-in-out infinite;
+        letter-spacing: -0.03em;
+        margin-bottom: 28px;
     }
 
     &__text {
         @extend %text;
+        font-size: 18px;
+        margin-bottom: 40px;
+        
+        @media (max-width: 480px) {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__links {
+        padding-top: 40px;
+        border-top: 1px solid rgba(255, 255, 255, 0.918);
+
+        @media (max-width: 480px) {
+            padding-top: 20px;
+        }
+
+        & > .contacts__text {
+            font-size: 35px;
+            letter-spacing: -0.03em;
+            margin-bottom: 15px;
+        }
     }
 
     &__buttons {
@@ -567,11 +710,12 @@
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
+        margin-bottom: 40px;
     }
 
     &__button {
         @extend %button;
-        @include button($mainColor);
+        @include button($white, transparent, $mainColor, $white);
         display: flex;
         align-items: center;
         column-gap: 5px;
@@ -580,20 +724,5 @@
 
     &__image {
         position: relative;
-
-        @media (max-width: 480px) {
-            margin-bottom: -30px;
-        }
-    }
-}
-
-@keyframes link {
-    0% {
-        -webkit-box-shadow: $green 0 0 0;
-        box-shadow: $green 0 0 0;
-    }
-    70% {
-        -webkit-box-shadow: $mainColor 0 0 0 10px;
-        box-shadow: $mainColor 0 0 0 10px;
     }
 }
