@@ -148,12 +148,12 @@
 
     &::before {
         left: -1%;
-        background: url("../img/smile.png") center no-repeat;
+        background: url("../img/smile.webp") center no-repeat;
     }
 
     &::after {
         right: -1%;
-        background: url("../img/backhand.png") center no-repeat;
+        background: url("../img/backhand.webp") center no-repeat;
     }
 
     &__text {
@@ -210,12 +210,12 @@
 
     &::before {
         left: -1%;
-        background: url("../img/smile.png") center no-repeat;
+        background: url("../img/smile.webp") center no-repeat;
     }
 
     &::after {
         right: -1%;
-        background: url("../img/backhand.png") center no-repeat;
+        background: url("../img/backhand.webp") center no-repeat;
     }
 
     &__text {
@@ -454,7 +454,7 @@
     }
 
     & > .project__container {
-        background: url("../img/projects/light-crypto.png") right center no-repeat, $purple;
+        background: url("../img/projects/light-crypto.webp") right center no-repeat, $purple;
         background-size: 480px, 400px;
 
         @media (max-width: 768px) {
@@ -471,9 +471,28 @@
     }
 }
 
+.notes {
+    & > .project__container {
+        background: url("../img/projects/notes.webp") right center no-repeat, $turquoise2;
+        background-size: 480px, 400px;
+
+        & .github {
+            @include button($white, transparent, $turquoise2, $white);
+        }
+
+        & .visit {
+            @include button($mainColor, $white, $mainColor, $lightGray2);
+        }
+
+        @media (max-width: 768px) {
+            background: $turquoise2;
+        }
+    }
+}
+
 .users {
     & > .project__container {
-        background: url("../img/projects/users.png") right center no-repeat, $blue;
+        background: url("../img/projects/users.webp") right center no-repeat, $blue;
         background-size: 480px, 400px;
         & .github {
             @include button($white, transparent, $blue, $white);
@@ -579,12 +598,12 @@
 
     &::before {
         left: -1%;
-        background: url("../img/cool.png") center no-repeat;
+        background: url("../img/cool.webp") center no-repeat;
     }
 
     &::after {
         right: -3%;
-        background: url("../img/wonder.png") center no-repeat;
+        background: url("../img/wonder.webp") center no-repeat;
     }
 
     &__container {
@@ -680,7 +699,7 @@
         @extend %text;
         font-size: 18px;
         margin-bottom: 40px;
-        
+
         @media (max-width: 480px) {
             margin-bottom: 20px;
         }
