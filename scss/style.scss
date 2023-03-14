@@ -420,6 +420,9 @@
     &__icon {
         display: none;
         max-height: 300px;
+        @media (max-width: 768px) {
+            width: 100%;
+        }
 
         &.small-card {
             display: block;
@@ -431,6 +434,10 @@
         img {
             max-width: 100%;
             object-fit: cover;
+
+            @media (max-width: 768px) {
+                width: 100%;
+            }
         }
 
         @media (max-width: 768px) {
@@ -486,6 +493,24 @@
 
         @media (max-width: 768px) {
             background: $turquoise2;
+        }
+    }
+}
+.momentum {
+    & > .project__container {
+        background: url("../img/projects/momentum.webp") right center no-repeat, $greenDark;
+        background-size: 480px, 400px;
+
+        & .github {
+            @include button($white, transparent, $greenDark, $white);
+        }
+
+        & .visit {
+            @include button($mainColor, $white, $mainColor, $lightGray2);
+        }
+
+        @media (max-width: 768px) {
+            background: $greenDark;
         }
     }
 }

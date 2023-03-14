@@ -642,6 +642,11 @@ svg path {
   display: none;
   max-height: 300px;
 }
+@media (max-width: 768px) {
+  .project__icon {
+    width: 100%;
+  }
+}
 .project__icon.small-card {
   display: block;
 }
@@ -651,6 +656,11 @@ svg path {
 .project__icon img {
   max-width: 100%;
   object-fit: cover;
+}
+@media (max-width: 768px) {
+  .project__icon img {
+    width: 100%;
+  }
 }
 @media (max-width: 768px) {
   .project__icon {
@@ -755,6 +765,48 @@ svg path {
 @media (max-width: 768px) {
   .notes > .project__container {
     background: #26afd6;
+  }
+}
+
+.momentum > .project__container {
+  background: url("../img/projects/momentum.webp") right center no-repeat, #38ac64;
+  background-size: 480px, 400px;
+}
+.momentum > .project__container .github {
+  color: #ffffff;
+  background: transparent;
+}
+.momentum > .project__container .github > svg path {
+  fill: #ffffff;
+}
+.momentum > .project__container .github:hover {
+  transition: all 0.3s ease;
+  background-color: #ffffff;
+  color: #38ac64;
+}
+.momentum > .project__container .github:hover > svg path {
+  transition: all 0.3s ease;
+  fill: #38ac64;
+}
+.momentum > .project__container .visit {
+  color: #080808;
+  background: #ffffff;
+}
+.momentum > .project__container .visit > svg path {
+  fill: #080808;
+}
+.momentum > .project__container .visit:hover {
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.7019607843);
+  color: #080808;
+}
+.momentum > .project__container .visit:hover > svg path {
+  transition: all 0.3s ease;
+  fill: #080808;
+}
+@media (max-width: 768px) {
+  .momentum > .project__container {
+    background: #38ac64;
   }
 }
 
