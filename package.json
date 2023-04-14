@@ -4,22 +4,24 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "web-dev-server --node-resolve --open --watch"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "web-dev-server --node-resolve --open --watch"
     },
     "repository": {
-      "type": "git",
-      "url": "git+https://github.com/iandyone/CV.git"
+        "type": "git",
+        "url": "git+https://github.com/iandyone/CV.git"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "bugs": {
-      "url": "https://github.com/iandyone/CV/issues"
+        "url": "https://github.com/iandyone/CV/issues"
     },
     "homepage": "https://github.com/iandyone/CV#readme",
     "dependencies": {
-      "locomotive-scroll": "^4.1.4"
+        "install": "^0.13.0",
+        "locomotive-scroll": "^4.1.4",
+        "npm": "^9.6.4",
+        "particles.js": "^2.0.0"
     }
-  }
-  
+}

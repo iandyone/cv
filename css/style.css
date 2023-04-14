@@ -3,6 +3,18 @@ html.has-scroll-smooth {
   overflow: hidden;
 }
 
+#particles-js {
+  position: fixed;
+  height: 100vw;
+  width: 200vw;
+  z-index: 0;
+  /* z-index: 0;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    width: 100vw; */
+}
+
 html.has-scroll-dragging {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -223,6 +235,8 @@ svg path {
   min-height: 100%;
   background-color: #080808;
   overflow: hidden;
+  position: relative;
+  z-index: 10;
 }
 
 .container {
