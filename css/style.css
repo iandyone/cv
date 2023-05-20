@@ -3,18 +3,6 @@ html.has-scroll-smooth {
   overflow: hidden;
 }
 
-#particles-js {
-  position: fixed;
-  height: 100vw;
-  width: 200vw;
-  z-index: 0;
-  /* z-index: 0;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    width: 100vw; */
-}
-
 html.has-scroll-dragging {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -235,8 +223,6 @@ svg path {
   min-height: 100%;
   background-color: #080808;
   overflow: hidden;
-  position: relative;
-  z-index: 10;
 }
 
 .container {
@@ -270,7 +256,7 @@ svg path {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: 992px;
+  max-height: 100vh;
 }
 @media (max-width: 992px) {
   .main {
@@ -688,16 +674,58 @@ svg path {
   }
 }
 
-.light-crypto {
+.jobored {
   opacity: 0;
   transition: opacity 1.5s;
   transition-delay: 0.3s;
 }
 @media (max-width: 700px) {
-  .light-crypto {
+  .jobored {
     transition-delay: 0s;
   }
 }
+.jobored > .project__container {
+  background: url("../img/projects/jobored.webp") right center no-repeat, #5e96fc;
+  background-size: 480px, 400px;
+}
+.jobored > .project__container .github {
+  color: #ffffff;
+  background: transparent;
+}
+.jobored > .project__container .github > svg path {
+  fill: #ffffff;
+}
+.jobored > .project__container .github:hover {
+  transition: all 0.3s ease;
+  background-color: #ffffff;
+  color: #5e96fc;
+}
+.jobored > .project__container .github:hover > svg path {
+  transition: all 0.3s ease;
+  fill: #5e96fc;
+}
+.jobored > .project__container .visit {
+  color: #080808;
+  background: #ffffff;
+}
+.jobored > .project__container .visit > svg path {
+  fill: #080808;
+}
+.jobored > .project__container .visit:hover {
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.7019607843);
+  color: #080808;
+}
+.jobored > .project__container .visit:hover > svg path {
+  transition: all 0.3s ease;
+  fill: #080808;
+}
+@media (max-width: 768px) {
+  .jobored > .project__container {
+    background: #5e96fc;
+  }
+}
+
 .light-crypto > .project__container {
   background: url("../img/projects/light-crypto.webp") right center no-repeat, #7c53f2;
   background-size: 480px, 400px;
@@ -1149,4 +1177,10 @@ svg path {
 }
 .contacts__image {
   position: relative;
+}
+
+#particles-js {
+  position: absolute !important;
+  width: 100vw;
+  height: 100vh;
 }

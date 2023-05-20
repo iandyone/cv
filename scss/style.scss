@@ -44,7 +44,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    max-height: 992px;
+    // max-height: 992px;
+    max-height: 100vh;
 
     @media (max-width: 992px) {
         padding: 20px;
@@ -451,7 +452,7 @@
     }
 }
 
-.light-crypto {
+.jobored {
     opacity: 0;
     transition: opacity 1.5s;
     transition-delay: 0.3s;
@@ -459,6 +460,27 @@
     @media (max-width: 700px) {
         transition-delay: 0s;
     }
+    
+    & > .project__container {
+        background: url("../img/projects/jobored.webp") right center no-repeat, $jobored;
+        background-size: 480px, 400px;
+
+        & .github {
+            @include button($white, transparent, $jobored, $white);
+        }
+
+        & .visit {
+            @include button($mainColor, $white, $mainColor, $lightGray2);
+        }
+
+        @media (max-width: 768px) {
+            background: $jobored;
+        }
+    }
+}
+
+.light-crypto {
+ 
 
     & > .project__container {
         background: url("../img/projects/light-crypto.webp") right center no-repeat, $purple;
@@ -769,4 +791,10 @@
     &__image {
         position: relative;
     }
+}
+
+#particles-js {
+    position: absolute !important;
+    width: 100vw;
+    height: 100vh;
 }
